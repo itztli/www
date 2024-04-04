@@ -1,0 +1,29 @@
+# This file is exec'd from settings.py, so it has access to and can
+# modify all the variables in settings.py.
+import os
+
+DEBUG = True
+
+# Make these unique, and don't share it with anybody.
+SECRET_KEY = "django-insecure-e5&r1lpppwq5l!5!t05*)^_2ny__1sx5cc-wgg&z)jdz5gq(g*"
+NEVERCACHE_KEY = "6*67vx9%1*h-kfk%g@^l^)bi@09d_29p4-%n!g16kp^9&i0lu$"
+
+DATABASES = {
+    "default": {
+        # Ends with "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
+        "ENGINE": "django.db.backends.sqlite3",
+        # DB name or path to database file if using sqlite3.
+        "NAME": "dev.db",
+        # Not used with sqlite3.
+        "USER": os.env("DB_USER"),
+        # Not used with sqlite3.
+        "PASSWORD": "",
+        # Set to empty string for localhost. Not used with sqlite3.
+        "HOST": "",
+        # Set to empty string for default. Not used with sqlite3.
+        "PORT": "",
+    }
+}
+
+# Allowed development hosts
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "::1"]
